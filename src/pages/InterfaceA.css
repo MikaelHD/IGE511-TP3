@@ -1,0 +1,192 @@
+/* Global styles */
+.App {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #ddd;
+}
+
+header h1 {
+  margin: 0;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+
+nav li {
+  margin-right: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+nav li.active {
+  text-decoration: underline;
+}
+
+.left-column {
+  padding: 20px;
+}
+
+.left-column div {
+  margin-bottom: 20px;
+}
+
+.left-column h2 {
+  margin-top: 0;
+}
+
+.right-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #eee;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  border: 1px solid #999;
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 20px;
+}
+
+.search-bar input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+
+.search-bar button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.useful-links h3 {
+  margin-top: 0;
+}
+
+.useful-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.useful-links li {
+  margin-bottom: 5px;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #ddd;
+}
+
+footer span:first-child {
+  font-size: 12px;
+}
+
+footer span:last-child {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Mobile styles */
+
+@media (max-width: 767px) {
+
+  header {
+    padding: 10px;
+  }
+
+  nav {
+    margin-bottom: 20px;
+  }
+
+  nav li {
+    margin-right: 10px;
+    font-size: 14px;
+  }
+
+  .left-column,
+  .right-column {
+    padding: 10px;
+  }
+
+  .search-bar {
+    margin-bottom: 10px;
+  }
+
+  .search-bar input {
+    font-size: 14px;
+  }
+
+}
+
+/* Desktop styles */
+
+@media (min-width: 768px) {
+
+  header {
+    padding: 20px;
+  }
+
+  nav li {
+    font-size: 16px;
+  }
+
+  .left-column {
+    flex: 1;
+  }
+
+  .right-column {
+    flex: 1;
+    margin-left: 20px;
+  }
+
+  .main {
+    display: flex;
+  }
+
+  .search-bar {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .search-bar input {
+    font-size: 16px;
+  }
+
+}
+
+/* Large desktop styles */
+
+@media (min-width: 1200px) {
+
+  .left-column {
+    flex: 2;
+    margin-right: 20px;
+  }
+
+  .right-column {
+    flex: 1;
+    margin-left: 0;
+  }
+
+}
