@@ -15,10 +15,8 @@ function InterfaceA() {
       id: 1,
       title: "Article #1",
       content:
-        (
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor sapien quis mauris blandit, vitae varius velit iaculis. Mauris placerat, augue quis feugiat imperdiet, velit orci viverra lorem, quis venenatis ex elit sit amet est.",
-          "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed eget ante vel augue sagittis lacinia. Morbi sodales ligula non nibh hendrerit lacinia. Praesent non lacus id augue sollicitudin mollis nec vel quam."
-        ),
+        ["Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor sapien quis mauris blandit, vitae varius velit iaculis. Mauris placerat, augue quis feugiat imperdiet, velit orci viverra lorem, quis venenatis ex elit sit amet est.",
+        "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed eget ante vel augue sagittis lacinia. Morbi sodales ligula non nibh hendrerit lacinia. Praesent non lacus id augue sollicitudin mollis nec vel quam."],
       date: "01/12/2020",
       author: "Nom de l'auteur",
     },
@@ -26,10 +24,8 @@ function InterfaceA() {
       id: 2,
       title: "Article #2",
       content:
-        (
-          "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed eget ante vel augue sagittis lacinia. Morbi sodales ligula non nibh hendrerit lacinia. Praesent non lacus id augue sollicitudin mollis nec vel quam.",
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor sapien quis mauris blandit, vitae varius velit iaculis. Mauris placerat, augue quis feugiat imperdiet, velit orci viverra lorem, quis venenatis ex elit sit amet est."
-        ),
+        ["Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed eget ante vel augue sagittis lacinia. Morbi sodales ligula non nibh hendrerit lacinia. Praesent non lacus id augue sollicitudin mollis nec vel quam.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor sapien quis mauris blandit, vitae varius velit iaculis. Mauris placerat, augue quis feugiat imperdiet, velit orci viverra lorem, quis venenatis ex elit sit amet est."],
       date: "01/12/2020",
       author: "Nom de l'auteur",
     },
@@ -112,8 +108,9 @@ function InterfaceA() {
             <div className="article" key={article.id}>
               <div>
                 <h2>{article.title}</h2>
-                
-                <p>{article.content}</p>
+                {article.content.map((paragraph, index) => (
+                  <p key={index}>{paragraph}</p>
+                ))}
               </div>
               <div className="article-footer">
                 <ul className="article-infos">
