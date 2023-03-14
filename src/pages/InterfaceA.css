@@ -237,6 +237,10 @@ footer span:last-child {
     gap: 16px;
   }
 
+  header{
+    padding-bottom: 44px;
+  }
+
   .article-footer {
     flex-direction: column;
   }
