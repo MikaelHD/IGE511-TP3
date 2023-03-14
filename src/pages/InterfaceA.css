@@ -10,10 +10,41 @@ header {
   align-items: center;
   padding: 20px;
   background-color: #ddd;
+  max-width: 100%;
 }
 
 header h1 {
   margin: 0;
+}
+
+.menu{
+  margin-top: 32px;
+}
+
+.menu ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: unset;
+    background-color: unset;
+    gap: 44px;
+}
+
+.menu li{
+  float: unset;
+  margin: 0;
+}
+
+.menu a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.menu li.active {
+  text-decoration: underline;
 }
 
 nav ul {
@@ -32,15 +63,52 @@ nav li.active {
   text-decoration: underline;
 }
 
-.left-column {
-  padding: 20px;
+.articles {
+  padding-right: 20px;
 }
 
-.left-column div {
+.article {
+  padding: 24px 24px 0;
+  background: #ededed;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  flex: 1 1 0px;
   margin-bottom: 20px;
 }
 
-.left-column h2 {
+.article-footer {
+  display: flex;
+  justify-self: end;
+  justify-content: space-between;
+}
+
+.article-footer li {
+  margin-right: 24px;
+}
+
+.article-footer button {
+  padding: 12px 24px;
+  margin-right: -24px;
+  background-color: #999;
+  border: none;
+}
+
+.article-footer button:hover {
+  color: #eee;
+  background-color: #111111;
+  cursor: pointer;
+}
+
+.article-infos {
+  background: none;
+}
+
+.article svg {
+  margin-right: 12px;
+}
+
+.articles h2 {
   margin-top: 0;
 }
 
@@ -76,18 +144,22 @@ nav li.active {
   cursor: pointer;
 }
 
-.useful-links h3 {
+.categories h3 {
   margin-top: 0;
 }
 
-.useful-links ul {
+.categories ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.useful-links li {
+.categories li {
   margin-bottom: 5px;
+}
+
+.categories a:hover {
+  color: #eee;
 }
 
 footer {
@@ -95,7 +167,8 @@ footer {
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  background-color: #ddd;
+  background-color: #ededed;
+  padding: 32px;
 }
 
 footer span:first-child {
@@ -110,13 +183,13 @@ footer span:last-child {
 /* Mobile styles */
 
 @media (max-width: 767px) {
-
-  header {
-    padding: 10px;
+  main {
+    display: flex;
+    flex-direction: column;
   }
 
-  nav {
-    margin-bottom: 20px;
+  header {
+    padding: 20px 10px 10px;
   }
 
   nav li {
@@ -124,25 +197,78 @@ footer span:last-child {
     font-size: 14px;
   }
 
-  .left-column,
+  .articles,
   .right-column {
-    padding: 10px;
+    padding: 10px 0;
+  }
+
+  .articles p{
+    text-align: justify;
   }
 
   .search-bar {
     margin-bottom: 10px;
+    order: -1;
+    padding: 24px;
+    background: #ededed;;
+    border-radius: 0;
+    border: 0;
   }
 
   .search-bar input {
     font-size: 14px;
+    padding: 12px;
   }
 
+  .search-bar button{
+    font-size: 14px;
+    padding: 12px;
+    background-color: white;
+  }
+
+  .categories{
+    display: none;
+  }
 }
 
+@media (max-width: 470px) {
+  .menu ul{
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  header{
+    padding-bottom: 44px;
+  }
+
+  .article-footer {
+    flex-direction: column;
+  }
+
+  .article-infos{
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  footer {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .article-footer li {
+    margin-right: 0;
+  }
+
+  .article-footer button{
+    align-self: end;
+  }
+}
 /* Desktop styles */
 
 @media (min-width: 768px) {
-
   header {
     padding: 20px;
   }
@@ -151,8 +277,16 @@ footer span:last-child {
     font-size: 16px;
   }
 
-  .left-column {
-    flex: 1;
+  .articles {
+    grid-area: articles;
+    align-self: start;
+    /*flex: 1;*/
+    /*grid-area: 1 / col1-start / last-line / 2;*/
+  }
+
+  .articles h2,
+  .articles p {
+    text-align: left;
   }
 
   .right-column {
@@ -160,26 +294,68 @@ footer span:last-child {
     margin-left: 20px;
   }
 
-  .main {
+  /*.main {
     display: flex;
+  }*/
+
+  .main {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 1fr 4fr;
+    grid-template-areas:
+      "articles search-bar"
+      "articles categories";
+    padding: 32px 32px;
   }
 
   .search-bar {
-    width: 100%;
+    max-width: 100%;
     margin-bottom: 20px;
+    grid-area: search-bar;
+    padding: 24px;
+    background: #ededed;
+    border-radius: 0;
+    border: 0;
+    /*grid-area: 1 / col3-start / row1-end / 3;*/
+    align-self: start;
   }
 
   .search-bar input {
     font-size: 16px;
+    padding: 12px;
   }
 
+  .search-bar button {
+    background: white;
+    padding: 12px;
+  }
+
+  .categories {
+    grid-area: categories;
+    padding: 24px;
+    background: #ededed;
+    align-self: start;
+    text-align: left;
+    /*grid-area: 2 / col3-start / row3-end / 3;*/
+  }
+
+  .categories ul{
+    display: flex;
+    flex-direction: column;
+    background-color: unset;
+  }
+
+  .categories a{
+    color: black;
+    text-align: left;
+    padding-left: 12px;
+  }
 }
 
 /* Large desktop styles */
 
 @media (min-width: 1200px) {
-
-  .left-column {
+  .articles {
     flex: 2;
     margin-right: 20px;
   }
@@ -188,5 +364,4 @@ footer span:last-child {
     flex: 1;
     margin-left: 0;
   }
-
 }
