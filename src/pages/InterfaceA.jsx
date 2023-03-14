@@ -13,7 +13,7 @@ function InterfaceA() {
   const articles = [
     {
       id: 1,
-      title: "Article #1",
+      title: "Titre de l'article",
       content:
         ["Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor sapien quis mauris blandit, vitae varius velit iaculis. Mauris placerat, augue quis feugiat imperdiet, velit orci viverra lorem, quis venenatis ex elit sit amet est.",
         "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed eget ante vel augue sagittis lacinia. Morbi sodales ligula non nibh hendrerit lacinia. Praesent non lacus id augue sollicitudin mollis nec vel quam."],
@@ -22,7 +22,7 @@ function InterfaceA() {
     },
     {
       id: 2,
-      title: "Article #2",
+      title: "Titre de l'article",
       content:
         ["Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed eget ante vel augue sagittis lacinia. Morbi sodales ligula non nibh hendrerit lacinia. Praesent non lacus id augue sollicitudin mollis nec vel quam.",
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor sapien quis mauris blandit, vitae varius velit iaculis. Mauris placerat, augue quis feugiat imperdiet, velit orci viverra lorem, quis venenatis ex elit sit amet est."],
@@ -78,26 +78,32 @@ function InterfaceA() {
   return (
     <div className="App">
       <header>
-        <h1>Header Title</h1>
-        <nav>
+        <h1>LOGO</h1>
+        <nav className="menu">
           <ul>
             <li
               className={activeTab === 1 ? "active" : ""}
               onClick={() => handleTabClick(1)}
             >
-              Tab 1
+              Accueil
             </li>
             <li
               className={activeTab === 2 ? "active" : ""}
               onClick={() => handleTabClick(2)}
             >
-              Tab 2
+              Blogue
             </li>
             <li
               className={activeTab === 3 ? "active" : ""}
               onClick={() => handleTabClick(3)}
             >
-              Tab 3
+              A propos
+            </li>
+            <li
+              className={activeTab === 4 ? "active" : ""}
+              onClick={() => handleTabClick(4)}
+            >
+              Nous joindre
             </li>
           </ul>
         </nav>
@@ -151,8 +157,8 @@ function InterfaceA() {
         </div>
       </main>
       <footer>
-        <span>All rights reserved</span>
-        <span>Company Name</span>
+        <span>&copy; Nom du blogue &#x2022; Tous droits réservés</span>
+        <span>Crédits agence web</span>
       </footer>
     </div>
   );

@@ -4,7 +4,7 @@ import './HeaderLayout.css'
 const Layout = () => {
     return (
         <>
-            <nav>
+            <nav className="main-menu">
                 <ul>
                     <li>
                         <Link to="interface-a" >Interface A</Link>
